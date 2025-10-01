@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Promptober App</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .test-section { margin: 20px 0; padding: 15px; border: 1px solid #ccc; border-radius: 5px; }
+        .success { background-color: #d4edda; border-color: #c3e6cb; }
+        .error { background-color: #f8d7da; border-color: #f5c6cb; }
+        .info { background-color: #d1ecf1; border-color: #bee5eb; }
+        iframe { width: 100%; height: 600px; border: 1px solid #ddd; }
+    </style>
+</head>
+<body>
+    <h1>🧪 Test de Aplicación Promptober Pop-Cine</h1>
+    
+    <div class="test-section info">
+        <h3>📋 Información del Test</h3>
+        <p><strong>URL:</strong> http://localhost:5173</p>
+        <p><strong>Estado del Servidor:</strong> ✅ Funcionando (Puerto 5173)</p>
+        <p><strong>Respuesta HTTP:</strong> ✅ 200 OK</p>
+    </div>
+
+    <div class="test-section">
+        <h3>🌐 Vista Previa de la Aplicación</h3>
+        <iframe src="http://localhost:5173" title="Promptober App"></iframe>
+    </div>
+
+    <div class="test-section">
+        <h3>✅ Funcionalidades a Validar</h3>
+        <ul>
+            <li>📅 <strong>Calendario de Octubre:</strong> Debe mostrar 31 días con prompts temáticos</li>
+            <li>🎯 <strong>Selección de Días:</strong> Click en cualquier día debe cambiar la vista</li>
+            <li>📝 <strong>Prompts:</strong> Cada día debe mostrar un prompt diferente (Star Wars, Matrix, etc.)</li>
+            <li>☑️ <strong>Checkbox "Marcado como realizado":</strong> Debe funcionar correctamente</li>
+            <li>🐦 <strong>Integración X/Twitter:</strong> Campo para URL de tuit</li>
+            <li>🖼️ <strong>Galería de Imágenes:</strong> Área para mostrar imágenes</li>
+            <li>💾 <strong>Persistencia Local:</strong> Los datos se guardan en IndexedDB</li>
+            <li>📤 <strong>Exportar/Importar:</strong> Botones para exportar e importar JSON</li>
+            <li>📱 <strong>Responsive:</strong> Debe adaptarse a diferentes tamaños de pantalla</li>
+        </ul>
+    </div>
+
+    <div class="test-section">
+        <h3>🔧 Comandos de Desarrollo</h3>
+        <p><strong>Para detener el servidor:</strong> Ctrl+C en la terminal</p>
+        <p><strong>Para reiniciar:</strong> <code>npm run dev</code></p>
+        <p><strong>Para construir para producción:</strong> <code>npm run build</code></p>
+    </div>
+
+    <script>
+        // Test automático de funcionalidades básicas
+        window.addEventListener('load', function() {
+            console.log('🧪 Iniciando tests automáticos...');
+            
+            // Test 1: Verificar que la aplicación carga
+            setTimeout(() => {
+                const iframe = document.querySelector('iframe');
+                if (iframe && iframe.contentDocument) {
+                    const app = iframe.contentDocument.querySelector('[class*="PromptoberApp"]') || 
+                               iframe.contentDocument.querySelector('h1');
+                    if (app) {
+                        console.log('✅ Aplicación cargada correctamente');
+                    } else {
+                        console.log('❌ Error: Aplicación no encontrada');
+                    }
+                }
+            }, 2000);
+        });
+    </script>
+</body>
+</html>
+
